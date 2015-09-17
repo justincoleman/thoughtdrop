@@ -1,0 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+$font-family-sans-serif:                'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$brand-primary: #06C4D1;
+
+$body-bg: #eee;
+
+$navbar-border-radius: 0;
+$navbar-default-brand-color: #06C4D1;
+$navbar-default-link-color: #06C4D1;
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
