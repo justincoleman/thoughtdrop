@@ -10,5 +10,7 @@
   <%= @thought.title %>
 </p>
 
-<%= link_to 'Edit', edit_thought_path(@thought) %> |
-<%= link_to 'Back', thoughts_path %>
+<% if @thought.user == current_user %>
+    <%= link_to 'Edit', edit_thought_path(@thought) %> |
+    <%= link_to 'Back', thoughts_path %>
+<% end %>

@@ -13,14 +13,6 @@
 
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Submit</button>
-          </form>
-        </li>
         <% if user_signed_in? %>
           <li><%= link_to "Account Settings", edit_user_registration_path %></li>
           <li class="dropdown">
@@ -46,6 +38,11 @@
           </li>
         <% end %>
       </ul>
+      <% if user_signed_in? %>
+        <%= link_to new_thought_path, type: "button", class: "btn btn-primary navbar-btn pull-right" do%>
+          <span class="glyphicon glyphicon-plus"></span> New Pin
+        <% end %>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

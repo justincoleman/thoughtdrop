@@ -21,6 +21,11 @@
     <%= f.text_area :description, class: "form-control", size: "60x12" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label "Rating" %><br>
+    <%= rating_for @thought, "quality", disable_after_rate: false %>
+  </div>
+
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>

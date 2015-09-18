@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Thoughts</h1>
+<h1>Your Thoughts</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Description</th>
       <th>Title</th>
+      <th>Thought</th>
+      <th>User</th>
+      <th>Rating</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,11 +16,15 @@
   <tbody>
     <% @thoughts.each do |thought| %>
       <tr>
-        <td><%= thought.description %></td>
         <td><%= thought.title %></td>
+        <td><%= thought.description %></td>
+        <td><%= thought.user.try(:email) %></td>
+        <td><%= rating_for thought, "quality", space: true %></td>
         <td><%= link_to 'Show', thought %></td>
-        <td><%= link_to 'Edit', edit_thought_path(thought) %></td>
-        <td><%= link_to 'Destroy', thought, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if thought.user == current_user %>
+          <td><%= link_to 'Edit', edit_thought_path(thought) %></td>
+          <td><%= link_to 'Destroy', thought, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
