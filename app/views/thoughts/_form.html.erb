@@ -22,6 +22,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label "Rating" %><br>
     <%= rating_for @thought, "quality", disable_after_rate: false %>
   </div>

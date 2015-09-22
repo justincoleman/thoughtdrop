@@ -1,16 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>
+                    <%= @thought.title %>
+                </h3>
+            </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @thought.description %>
-</p>
+            <div class="panel-body">
+                <h4>Description:</h4>
+                <p><%= @thought.description %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @thought.title %>
-</p>
+                <hr>
 
-<% if @thought.user == current_user %>
-    <%= link_to 'Edit', edit_thought_path(@thought) %> |
-    <%= link_to 'Back', thoughts_path %>
-<% end %>
+                <div class="img-container pull-left">
+                    <%= image_tag @thought.image.url(:medium) %>
+                </div>
+
+                <div class="clearfix">
+
+                    <h4>Rating:</h4>
+                    <p><%= rating_for @thought, "quality", space: true %></p>
+
+                    <h4>Tags:</h4>
+                    <div class="tags">
+                        <span class="tag">Tag1 Here</span>
+                        <span class="tag">Tag2 Here</span>
+                    </div>
+                </div>
+
+                <sub class="clearfix"><%= @thought.updated_at.strftime("Last modified at %m/%d/%Y at %I:%M%p") %></sub>
+            </div>
+
+            <div class="panel-footer">
+                <% if @thought.user == current_user %>
+                    <%= link_to 'Edit', edit_thought_path(@thought) %> |
+                    <%= link_to 'Back', thoughts_path %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
