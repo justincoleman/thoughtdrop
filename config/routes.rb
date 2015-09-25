@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   get 'pages/home'
 
-  root 'pages#home'
+  get 'tags/:tag', to: 'thoughts#index', as: :tag
+
+  root "thoughts#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

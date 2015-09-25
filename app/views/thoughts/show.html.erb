@@ -24,8 +24,7 @@
 
                     <h4>Tags:</h4>
                     <div class="tags">
-                        <span class="tag">Tag1 Here</span>
-                        <span class="tag">Tag2 Here</span>
+                        <%= raw @thought.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
                     </div>
                 </div>
 

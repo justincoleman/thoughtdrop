@@ -2,7 +2,7 @@
 
 $font-family-sans-serif:                'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-$brand-primary: #06C4D1;
+$brand-primary: #4b7df8;
 $brand-warning: #E3D2AF;
 $brand-danger: #F04366;
 
@@ -11,12 +11,16 @@ $headings-color: #706770;
 $body-bg: #eee;
 
 $navbar-border-radius: 0;
-$navbar-default-brand-color: #06C4D1;
-$navbar-default-link-color: #06C4D1;
+$navbar-default-brand-color: #285cda;
+$navbar-default-link-color: #4b7df8;
 
-$input-border-focus: #06C4D1;
+$input-border-focus: #285cda;
+
+$link-color: #4b7df8;
 
 $hr-border: #D6D6D6;
+
+$jumbotron-bg: #fff;
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
@@ -27,4 +31,13 @@ label {
 
 .white {
     background: white;
+}
+
+.navbar-brand {
+    padding-top: 5px;
+    padding-bottom: 0;
+
+    img {
+        width: 200px;
+    }
 }

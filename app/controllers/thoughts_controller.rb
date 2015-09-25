@@ -6,10 +6,15 @@ class ThoughtsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @thoughts = Thought.all
+    if params[:tag]
+      @thoughts = Thought.tagged_with(params[:tag])
+    else
+      @thoughts = Thought.all.order("created_at DESC")
+    end
   end
 
   def show
+
   end
 
   def new
@@ -38,7 +43,7 @@ class ThoughtsController < ApplicationController
 
   def destroy
     @thought.destroy
-    redirect_to thoughts_url, notice: 'Thought was successfully destroyed.'
+    redirect_to thoughts_url, notice: 'Thought was successfully deleted.'
   end
 
   private
@@ -54,6 +59,6 @@ class ThoughtsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thought_params
-      params.require(:thought).permit(:description, :title, :image)
+      params.require(:thought).permit(:description, :title, :image, :tag_list)
     end
 end
