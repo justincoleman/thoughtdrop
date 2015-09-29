@@ -5,3 +5,112 @@
 .panel .img-container {
     margin-right: 20px;
 }
+
+#thoughts {
+    ul {
+        border: 1px solid #bbb;
+        list-style: none;
+        padding: 0;
+
+        li {
+            background: #fff;
+            border-bottom: 1px solid #bbb;
+            padding: 20px;
+            position: relative;
+
+            &:nth-child(even) {
+                background: darken(#fff, 2%);
+            }
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .thought-main {
+        width: 69%;
+        display: inline-block;
+
+
+        .img-container {
+            margin: 0 10px 0 0;
+        }
+        h2 {
+            margin: 0 0 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .thought-meta {
+            display: block;
+            width: 100%;
+            border-top: 1px solid #eee;
+            margin: 20px 0 0 0;
+            padding: 10px 0 0;
+        }
+        .thought-rating {
+            float: left;
+            margin: 0 10px 0 0;
+        }
+        .thought-tags {
+            float: left;
+            margin: 0 10px 0 0;
+
+            a {
+                border: none;
+                background: #4b7df8;
+                color: #fff;
+                padding: 1px 5px 4px;
+                border-radius: 50px;
+
+                &:hover {
+                    background: darken(#4b7df8, 5%);
+                    text-decoration: none;
+                }
+            }
+        }
+        sub {
+            vertical-align: super;
+            position: relative;
+            top: 6px;
+        }
+    }
+
+    .thought-links {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 30%;
+        height: 100%;
+
+        a {
+            border-right: 1px solid #4b7df8;
+            display: block;
+            float: left;
+            text-align: center;
+            height: 100%;
+            color: #666;
+            width: 33.3%;
+            // line-height: 10;
+            padding-top: 25%;
+
+            &:hover {
+                background: #4b7df8;
+                color: #fff;
+                text-decoration: none;
+            }
+
+            &:first-child {
+                border-left: 1px solid #4b7df8;
+            }
+            &:last-child {
+                border-right: none;
+            }
+
+            &.delete:hover {
+                background: red;
+            }
+        }
+    }
+}

@@ -1,1 +1,11 @@
-<h1>Your Thoughts</h1>
+<div class="clearfix">
+    <h1>
+        My Thoughts
+
+        <div class="pull-right">
+            <%= link_to new_thought_path, type: "button", class: "btn btn-primary navbar-btn pull-left" do%>
+                <span class="glyphicon glyphicon-plus"></span> Add Thought
+            <% end %>
+        </div>
+    </h1>
+</div>

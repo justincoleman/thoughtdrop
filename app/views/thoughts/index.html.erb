@@ -3,49 +3,40 @@
 <%= render 'pages/top' if user_signed_in? %>
 
 <div id="thoughts">
+  <ul>
   <% @thoughts.each do |thought| %>
     <% if current_user && thought.user == current_user %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3>
-            <%= thought.title %>
-        </h3>
+    <li class="clearfix">
+      <div class="thought-main clearfix">
+        <div class="img-container pull-left">
+            <%= link_to image_tag(thought.image.url(:thumb)), thought %>
+        </div>
+
+        <h2 title="<%= thought.title %>"><%= thought.title %></h2>
+
+        <p><%= thought.description %></p>
+
+        <div class="thought-meta">
+            <div class="clearfix">
+                <span class="thought-rating"><%= rating_for thought, "quality", space: true %></span>
+
+                <div class="thought-tags"><%= raw thought.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></div>
+
+                <sub><%= thought.updated_at.strftime("Last modified at %m/%d/%Y at %I:%M%p") %> by <%= thought.user.try(:name) %></sub>
+            </div>
+        </div>
       </div>
 
-      <div class="panel-body clearfix">
-          <h4>Description:</h4>
-          <p><%= thought.description %></p>
-
-          <hr>
-
-          <div class="img-container pull-left">
-              <!-- <%= link_to image_tag(thought.image.url(:medium)), thought %> -->
-              <%= image_tag thought.image.url(:medium) %>
-          </div>
-
-          <div class="clearfix">
-
-              <h4>Rating:</h4>
-              <p><%= rating_for thought, "quality", space: true %></p>
-
-              <h4>Tags:</h4>
-              <div class="tags">
-                  <%= raw thought.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-              </div>
-          </div>
-
-          <!-- <sub class="pull-left clearfix"><%= thought.user.try(:name) %></sub> -->
-          <sub class="pull-right clearfix"><%= thought.updated_at.strftime("Last modified at %m/%d/%Y at %I:%M%p") %></sub>
-      </div>
-
-      <div class="panel-footer">
+      <div class="thought-links pull-right">
           <% if thought.user == current_user %>
               <!-- <%= link_to 'Show', thought %> | -->
-              <%= link_to 'Back', thoughts_path %> |
-              <%= link_to 'Edit', edit_thought_path(thought) %> |
-              <%= link_to 'Delete', thought, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %>
+              <%= link_to 'Details', thought %>
+              <%= link_to 'Edit', edit_thought_path(thought) %>
+              <%= link_to 'Delete', thought, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger delete" %>
           <% end %>
       </div>
+    </li>
+  <% end %>
+  <% end %>
+  </ul>
 </div>
-<% end %>
-<% end %>
