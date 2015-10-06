@@ -3,13 +3,13 @@ class Thought < ActiveRecord::Base
 
     validates :description, presence: true
 
-    ratyrate_rateable "quality"
+    ratyrate_rateable 'quality'
 
     has_attached_file :image,
-                      :styles => { :medium => "300x300>", :thumb => "100x100>" },
+                      :styles => { :medium => '300x300>', :thumb => '100x100>' },
                       :default_url => 'missing_:style.png'
 
-    validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+    validates_attachment_content_type :image, :content_type => ['image/jpg', 'image/jpeg', 'image/png']
 
     acts_as_taggable
     acts_as_taggable_on :tag_list

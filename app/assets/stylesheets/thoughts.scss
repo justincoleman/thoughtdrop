@@ -19,7 +19,7 @@
             position: relative;
 
             &:nth-child(even) {
-                background: darken(#fff, 2%);
+                background: #F5F5F5;
             }
             &:last-child {
                 border-bottom: none;
@@ -44,7 +44,7 @@
         .thought-meta {
             display: block;
             width: 100%;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #bbb;
             margin: 20px 0 0 0;
             padding: 10px 0 0;
         }
