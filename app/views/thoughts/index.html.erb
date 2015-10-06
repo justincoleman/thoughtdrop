@@ -18,7 +18,7 @@
 
         <div class="thought-meta">
             <div class="clearfix">
-                <span class="thought-rating"><%= rating_for thought, "quality", space: true %></span>
+                <span class="thought-rating"><%= rating_for thought, "quality", star_path: '/images/ratyrate', space: true %></span>
 
                 <div class="thought-tags"><%= raw thought.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></div>
 
